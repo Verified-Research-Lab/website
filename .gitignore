@@ -1,0 +1,21 @@
+# Hugo-generated files
+/public/
+/resources/_gen/
+/hugo_stats.json
+/.hugo_build.lock
+
+# Hugo caches
+/.hugo_cache/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
