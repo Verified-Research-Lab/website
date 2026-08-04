@@ -2,7 +2,6 @@
 title: "How verification works"
 seoTitle: "Computational claim verification method"
 description: "How we reproduce results, replicate claims independently, and report the limits of each conclusion."
-kicker: "Method in development"
 intro: "We define the claim and test conditions before examining the code or results."
 visual:
   src: "/images/methods-evidence-workflow.webp"

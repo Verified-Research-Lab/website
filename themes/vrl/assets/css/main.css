@@ -157,15 +157,15 @@ img, svg { display: block; max-width: 100%; }
 
 .research-figure { position: relative; margin: 0; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
 .research-figure img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(.72) contrast(.96); }
-.research-figure figcaption { display: grid; gap: 4px; padding: 15px 16px 17px; }
-.research-figure figcaption span, .method-map figcaption span {
+.research-figure figcaption { padding: 15px 16px 17px; }
+.method-map figcaption span {
   color: var(--muted);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
-.research-figure figcaption strong { font-size: 13px; line-height: 1.35; }
+.research-figure figcaption strong { display: block; font-size: 13px; line-height: 1.35; }
 
 .home-outcomes {
   padding: clamp(54px, 7vw, 78px) 0 clamp(60px, 8vw, 88px);
@@ -206,20 +206,9 @@ img, svg { display: block; max-width: 100%; }
   filter: saturate(.72) contrast(.96);
 }
 .page-visual figcaption {
-  display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
-  align-items: baseline;
-  gap: 18px;
   padding: 16px 18px 18px;
 }
-.page-visual figcaption span {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.page-visual figcaption strong { max-width: 58ch; font-size: 14px; line-height: 1.45; }
+.page-visual figcaption strong { display: block; max-width: 58ch; font-size: 14px; line-height: 1.45; }
 
 
 .row-arrow { color: var(--accent-ink); font-size: 18px; text-align: right; }
@@ -326,9 +315,8 @@ img, svg { display: block; max-width: 100%; }
 .governance-list h2 { margin: 0; font-size: 21px; line-height: 1.2; }
 .governance-list p { max-width: 700px; margin: 0; color: var(--muted); font-size: 14px; }
 
-.registry-head { display: flex; justify-content: space-between; align-items: start; gap: 40px; margin-bottom: 42px; }
-.registry-status { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--line); color: var(--muted); font: 650 10px/1 var(--typeface); text-transform: uppercase; }
-.registry-status span, .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.registry-intro { margin-bottom: 42px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 .record-fields { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(50px, 9vw, 110px); padding-top: 32px; border-top: 1px solid var(--ink); }
 .record-fields ul { margin: 0; padding-left: 20px; }
 .record-fields li { padding: 3px 0 8px; color: var(--muted); font-size: 14px; }
@@ -439,7 +427,7 @@ img, svg { display: block; max-width: 100%; }
   .method-terms { grid-template-columns: 1fr; gap: 24px; margin-bottom: 36px; }
   .page-visual { grid-template-columns: 1fr; }
   .page-visual img { height: auto; min-height: 0; aspect-ratio: 3 / 2; }
-  .page-visual figcaption { grid-template-columns: 1fr; gap: 5px; min-height: 0; padding: 15px 16px 17px; }
+  .page-visual figcaption { min-height: 0; padding: 15px 16px 17px; }
   .method-visual { margin-bottom: 36px; }
   .governance-visual { margin-bottom: 38px; }
   .about-visual { margin-top: 36px; }
@@ -454,7 +442,7 @@ img, svg { display: block; max-width: 100%; }
   .label-groups p { min-height: 0; }
   .about-definition, .boundary-section, .record-fields { gap: 34px; }
   .boundary-section { margin-top: 48px; }
-  .registry-head { flex-direction: column; gap: 22px; margin-bottom: 34px; }
+  .registry-intro { margin-bottom: 34px; }
   .contact-grid { gap: 34px; }
   .email-link { font-size: clamp(18px, 5.2vw, 21px); }
   .report-meta dl { grid-template-columns: 1fr 1fr; gap: 18px; }
