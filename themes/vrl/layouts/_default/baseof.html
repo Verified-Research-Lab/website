@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default `en-US` }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f3ef">
+    <script>
+      (() => {
+        try {
+          const mode = localStorage.getItem("vrl-theme");
+          if (mode === "light" || mode === "dark") document.documentElement.dataset.theme = mode;
+        } catch (_) {}
+      })();
+    </script>
+    {{- $description := .Description | default site.Params.description -}}
+    {{- $pageName := .Params.seoTitle | default .Title -}}
+    {{- $title := cond .IsHome site.Params.seoTitle (printf "%s | %s" $pageName site.Title) -}}
+    {{- $socialImage := site.Params.socialImage -}}
+    {{- $socialImageAlt := printf "Verified Research Lab: %s" site.Params.tagline -}}
+    {{- $socialImageHeight := 630 -}}
+    {{- with .Params.visual -}}
+      {{- $socialImage = .src -}}
+      {{- $socialImageAlt = .alt -}}
+      {{- $socialImageHeight = 800 -}}
+    {{- end -}}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    <meta name="author" content="{{ site.Title }}">
+    {{ if eq .Kind "404" }}<meta name="robots" content="noindex, nofollow">{{ else }}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">{{ end }}
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="alternate" hreflang="en" href="{{ .Permalink }}">
+    <link rel="alternate" type="text/plain" href="{{ `llms.txt` | absURL }}" title="LLM site guide">
+    <link rel="sitemap" type="application/xml" href="{{ `sitemap.xml` | absURL }}">
+    <meta property="og:site_name" content="{{ site.Title }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="{{ if eq .Section `reports` }}article{{ else }}website{{ end }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ $socialImage | absURL }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="{{ $socialImageHeight }}">
+    <meta property="og:image:alt" content="{{ $socialImageAlt }}">
+    {{ if and (eq .Section `reports`) (not .Lastmod.IsZero) }}<meta property="article:modified_time" content="{{ .Lastmod.Format `2006-01-02T15:04:05Z07:00` }}">{{ end }}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ $socialImage | absURL }}">
+    <meta name="twitter:image:alt" content="{{ $socialImageAlt }}">
+    {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
+    <link rel="icon" href="{{ `favicon.svg` | relURL }}" type="image/svg+xml">
+    {{ partial "structured-data.html" . }}
+    {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+    {{ $js := resources.Get "js/theme.js" | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  </head>
+  <body class="section-{{ .Section | default `home` }}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    {{ partial "header.html" . }}
+    <main id="main">{{ block "main" . }}{{ end }}</main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

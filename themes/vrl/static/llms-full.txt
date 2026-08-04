@@ -1,0 +1,81 @@
+# Verified Research Lab: expanded site guide
+
+> Verified Research Lab independently reproduces results, replicates claims, and reviews methods, artifacts, and benchmarks in computer systems and software research.
+
+## Purpose
+
+VRL examines published and pre-publication research in operating systems, distributed systems, databases, networking, software engineering, programming languages, compilers, systems security, and performance. Initial work focuses on papers and computational artifacts available for independent examination. Evaluations support post-publication review, publication preparation, follow-up research, technical adoption, funding, and due diligence.
+
+## Verification method
+
+VRL uses **reproduction** for re-executing reported work with the supplied artifact or a reconstructed equivalent. It uses **replication** for testing the same claim with an independently constructed implementation, dataset, or experimental design.
+
+- Specify the claim, decision, tolerances, conditions, and exclusions.
+- Preserve code, data, versions, provenance, access conditions, and known gaps.
+- Reconstruct the environment and compare independently obtained results with declared tolerances.
+- Audit baselines, workloads, measurement, statistics, exclusions, and validity threats.
+- Test reasonable variations in parameters, environments, datasets, workloads, and cost assumptions.
+- Report the conclusion, uncertainty, limits, review status, and revalidation trigger.
+
+## Evidence labels
+
+- Artifacts identified
+- Artifacts available
+- Artifacts functional
+- Result reproduced
+- Method audited
+- Robustness tested
+- Independently corroborated
+- Supported within tested conditions
+- Not reproduced
+- Inconclusive
+
+Labels describe the completed work and conclusions for the claims examined, whether the review covers part or all of a paper.
+
+## Services
+
+### Research reproduction and replication
+
+Reruns reported results from supplied materials, or tests the same claim with an independent implementation, dataset, or experimental design.
+
+### Claim and method review
+
+Assesses whether the research design, analysis, and evidence support the stated claim.
+
+### Artifact review
+
+Checks whether code, data, environments, and instructions can be retrieved and executed independently, then assesses versioning, preservation, and hosting readiness. Teams can request a separate advisory preparation pass.
+
+### Benchmark audit
+
+For researchers preparing performance, cost, security, reliability, or correctness comparisons. Examines baselines, workloads, resource parity, measurement, statistics, and operating conditions.
+
+### Independent verification report
+
+For researchers, laboratories, journals, conferences, and public-interest sponsors. Publishes a versioned record of the claims, evidence, methods, subject response, review, and correction status.
+
+### Technical due diligence
+
+For investors, acquirers, R&D leaders, and funders. Examines research-derived technology before investment, acquisition, procurement, or adoption.
+
+## Governance commitments
+
+- Sponsors may fund work but may not direct conclusions.
+- Funding, conflicts, competence limits, and publication status are recorded.
+- Subjects may correct factual errors and submit a response without gaining veto power.
+- Public findings receive independent sign-off suited to their scope and risk.
+- Evidence is preserved where legal, contractual, privacy, and security obligations permit.
+- Amendments, supersession, and withdrawal remain visible.
+
+## Current status
+
+VRL is preparing its method and first evaluations of existing research. The public report registry contains no completed findings yet.
+
+## Canonical links
+
+- Website: https://verifiedresearchlab.org/
+- Services: https://verifiedresearchlab.org/services/
+- Method: https://verifiedresearchlab.org/methods/
+- Reports: https://verifiedresearchlab.org/reports/
+- Governance: https://verifiedresearchlab.org/governance/
+- Contact: https://verifiedresearchlab.org/contact/

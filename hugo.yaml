@@ -1,0 +1,57 @@
+baseURL: https://verifiedresearchlab.org/
+locale: en-US
+title: Verified Research Lab
+theme: vrl
+enableRobotsTXT: true
+disableKinds:
+  - taxonomy
+  - term
+
+pagination:
+  pagerSize: 12
+
+taxonomies:
+  domain: domains
+  evidence: evidence
+
+menus:
+  main:
+    - name: Services
+      pageRef: /services
+      weight: 10
+    - name: Methods
+      pageRef: /methods
+      weight: 20
+    - name: Reports
+      pageRef: /reports
+      weight: 30
+    - name: Governance
+      pageRef: /governance
+      weight: 40
+    - name: About
+      pageRef: /about
+      weight: 50
+
+params:
+  description: Independent reproduction, replication, and technical review for computer systems and software research.
+  tagline: Reproduction and replication for computer systems and software research.
+  contactEmail: contact@verifiedresearchlab.org
+  socialImage: /images/social-card.png
+  logo: /favicon.svg
+  seoTitle: Research Reproduction and Replication | Verified Research Lab
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+  highlight:
+    noClasses: false
+
+caches:
+  images:
+    dir: :cacheDir/images
+
+outputs:
+  home:
+    - HTML
+    - RSS

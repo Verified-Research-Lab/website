@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article>
+  <header class="article-head shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ `/` | relURL }}">Home</a><span>/</span>{{ with .CurrentSection }}<a href="{{ .RelPermalink }}">{{ .Title }}</a><span>/</span>{{ end }}</nav>
+    <p class="eyebrow">{{ .Params.kicker | default (.Section | humanize) }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-deck">{{ . }}</p>{{ end }}
+    {{ if eq .Section "reports" }}{{ partial "report-meta.html" . }}{{ end }}
+  </header>
+  <div class="shell article-grid">
+    <div class="prose article-body">{{ .Content }}</div>
+    <aside class="article-aside">
+      {{ with .Params.decision }}<div><span>Decision context</span><p>{{ . }}</p></div>{{ end }}
+      {{ with .Params.buyer }}<div><span>Typical buyer</span><p>{{ . }}</p></div>{{ end }}
+      <div><span>Principle</span><p>The conclusion will be no broader than the evidence examined.</p></div>
+    </aside>
+  </div>
+</article>
+{{ end }}
+

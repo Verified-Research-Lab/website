@@ -1,0 +1,24 @@
+{{ define "main" }}
+<header class="page-head shell">
+  <p class="eyebrow">{{ .Params.kicker | default .Section }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="page-deck">{{ . }}</p>{{ end }}
+</header>
+<div class="shell section-list-wrap">
+  {{ with .Content }}<div class="prose list-intro">{{ . }}</div>{{ end }}
+  {{ if eq .Section "reports" }}
+    {{ if .Pages }}<div class="report-list">{{ range .Pages }}{{ partial "report-card.html" . }}{{ end }}</div>
+    {{ else }}<div class="empty-register"><div><span class="status-dot"></span> Registry status: no reports</div><p>The first public record will be added only after evaluation and evidence preservation are complete.</p></div>{{ end }}
+  {{ else }}
+    <div class="content-card-grid">
+      {{ range .Pages.ByWeight }}
+      <article class="content-card">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Description }}</p>
+        {{ with .Params.buyer }}<div class="card-meta">For {{ . }}</div>{{ end }}
+      </article>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>
+{{ end }}

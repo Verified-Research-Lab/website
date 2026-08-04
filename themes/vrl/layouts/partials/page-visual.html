@@ -1,0 +1,12 @@
+{{- $page := .page -}}
+{{- $visual := $page.Params.visual -}}
+{{- with .visual }}{{ $visual = . }}{{ end -}}
+{{- with $visual -}}
+<figure class="page-visual {{ $.class }}">
+  <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="1200" height="800" loading="lazy" decoding="async">
+  <figcaption>
+    <span>{{ .label | default "Illustrative image" }}</span>
+    <strong>{{ .caption }}</strong>
+  </figcaption>
+</figure>
+{{- end -}}

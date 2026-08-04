@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ partial "page-intro.html" . }}
+<section class="shell page-body">
+  <p class="intro-statement method-intro">{{ .Params.intro }}</p>
+  <div class="method-terms" aria-label="How Verified Research Lab uses reproduction and replication">
+    {{ range .Params.terms }}<article><h2>{{ .title }}</h2><p>{{ .text }}</p></article>{{ end }}
+  </div>
+  {{ partial "page-visual.html" (dict "page" . "class" "method-visual") }}
+  {{ partial "method-map.html" . }}
+  <ol class="stage-list">
+    {{ range .Params.stages }}
+    <li><h2>{{ .title }}</h2><p>{{ .text }}</p></li>
+    {{ end }}
+  </ol>
+  <div class="evidence-label-section">
+    <div class="section-heading"><h2>Evidence labels</h2><p>Labels record completed work at claim level. A paper-wide review may carry several labels.</p></div>
+    <div class="label-groups">{{ range .Params.labelGroups }}<article><h3>{{ .title }}</h3><p>{{ .text }}</p><ul>{{ range .labels }}<li>{{ . }}</li>{{ end }}</ul></article>{{ end }}</div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+{{ partial "page-intro.html" . }}
+<section class="shell page-body">
+  <div class="about-definition">
+    <div><p class="about-lead">{{ .Params.definition }}</p><p class="about-launch">{{ .Params.launchFocus }}</p></div>
+    <aside><h2>Research areas</h2><ul>{{ range .Params.scope }}<li>{{ . }}</li>{{ end }}</ul></aside>
+  </div>
+  {{ partial "page-visual.html" (dict "page" . "class" "about-visual") }}
+  <div class="boundary-section">
+    <div><h2>{{ .Params.boundariesTitle }}</h2><p>{{ .Params.boundariesIntro }}</p></div>
+    <ul>{{ range .Params.boundaries }}<li>{{ . }}</li>{{ end }}</ul>
+  </div>
+  <p class="page-contact">See <a href="{{ `/governance/` | relURL }}">Governance</a> for sponsorship, review, and correction rules.</p>
+</section>
+{{ end }}

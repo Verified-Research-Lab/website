@@ -1,0 +1,10 @@
+<div class="report-meta">
+  <dl>
+    <div><dt>Record</dt><dd>{{ .Params.reportId }}</dd></div>
+    <div><dt>Version</dt><dd>{{ .Params.version }}</dd></div>
+    <div><dt>Status</dt><dd>{{ .Params.status }}</dd></div>
+    <div><dt>Published</dt><dd>{{ .Date.Format "2 January 2006" }}</dd></div>
+  </dl>
+  {{ with .Params.evidence }}<div class="evidence-labels" aria-label="Evidence labels">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}
+</div>
+

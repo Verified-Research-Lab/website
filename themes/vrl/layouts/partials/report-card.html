@@ -1,0 +1,14 @@
+<article class="report-card">
+  <div class="report-card-top">
+    <span>{{ .Params.reportId | default "Pending ID" }}</span>
+    <span class="report-status status-{{ .Params.status | urlize }}">{{ .Params.status | default "Under review" }}</span>
+  </div>
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p>{{ .Description }}</p>
+  <dl>
+    <div><dt>Version</dt><dd>{{ .Params.version | default "1.0" }}</dd></div>
+    <div><dt>Published</dt><dd>{{ .Date.Format "2 Jan 2006" }}</dd></div>
+    <div><dt>Domain</dt><dd>{{ delimit .Params.domains ", " }}</dd></div>
+  </dl>
+</article>
+

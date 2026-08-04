@@ -1,0 +1,12 @@
+name = "VRL Evidence Ledger"
+license = "MIT"
+licenselink = "https://github.com/Verified-Research-Lab/website/blob/main/LICENSE"
+description = "A research institution theme for scoped, versioned computational evidence."
+homepage = "https://verifiedresearchlab.org/"
+tags = ["research", "laboratory", "reports", "services", "minimal", "accessible"]
+features = ["responsive", "report metadata", "evidence labels", "theme switcher", "print styles"]
+min_version = "0.146.0"
+
+[author]
+  name = "Verified Research Lab"
+  homepage = "https://verifiedresearchlab.org/"

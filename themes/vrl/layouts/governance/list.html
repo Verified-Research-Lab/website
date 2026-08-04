@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "page-intro.html" . }}
+<section class="shell page-body">
+  {{ partial "page-visual.html" (dict "page" . "class" "governance-visual") }}
+  <div class="governance-list">
+    {{ range .Params.commitments }}
+    <article><h2>{{ .title }}</h2><p>{{ .text }}</p></article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

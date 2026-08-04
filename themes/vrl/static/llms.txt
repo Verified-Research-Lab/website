@@ -1,0 +1,34 @@
+# Verified Research Lab
+
+> Verified Research Lab independently reproduces results, replicates claims, and reviews methods, artifacts, and benchmarks in computer systems and software research.
+
+The laboratory examines papers and artifacts, reconstructs computational environments, reruns experiments, audits comparisons, and records the limits of each conclusion.
+
+## Core pages
+
+- [Services](https://verifiedresearchlab.org/services/): Research reproduction and replication, claim and method review, artifact review, benchmark audits, independent reports, and technical due diligence.
+- [Verification method](https://verifiedresearchlab.org/methods/): The six-stage claim-to-evidence process and evidence labels.
+- [Public report registry](https://verifiedresearchlab.org/reports/): Versioned reports, responses, corrections, and revalidation status.
+- [Governance](https://verifiedresearchlab.org/governance/): Sponsor separation, conflicts, factual review, evidence preservation, and correction policy.
+- [About](https://verifiedresearchlab.org/about/): Current focus, technical scope, and boundaries.
+- [Contact](https://verifiedresearchlab.org/contact/): How to discuss a paper, artifact, benchmark, or claim.
+
+## Services
+
+- [Research reproduction and replication](https://verifiedresearchlab.org/services/research-reproduction-and-replication/): Reruns reported results from supplied materials or tests the same claim through an independent replication.
+- [Claim and method review](https://verifiedresearchlab.org/services/claim-and-method-review/): Assesses whether the method, analysis, and evidence support the stated claim.
+- [Artifact review](https://verifiedresearchlab.org/services/artifact-readiness/): Checks whether code, data, environments, and instructions can be retrieved and executed independently, then assesses versioning, preservation, and hosting readiness.
+- [Benchmark audit](https://verifiedresearchlab.org/services/benchmark-audits/): Tests baselines, workloads, measurements, statistics, and claimed advantages.
+- [Independent verification report](https://verifiedresearchlab.org/services/independent-reports/): Publishes a versioned record of what reproduced, what replicated, what failed, and what remains uncertain.
+- [Technical due diligence](https://verifiedresearchlab.org/services/technical-due-diligence/): Tests research-derived technology before investment, acquisition, procurement, or adoption.
+
+## Important qualifications
+
+- A review may cover an entire paper, but each conclusion remains tied to the claims, methods, artifacts, and conditions examined.
+- A failure to reproduce does not by itself prove the underlying proposition false.
+- Sponsors may fund work but may not direct conclusions.
+- The public report registry currently contains no completed reports.
+
+## Optional
+
+- [Expanded site guide](https://verifiedresearchlab.org/llms-full.txt): Detailed description of the method, services, evidence labels, and governance commitments.
