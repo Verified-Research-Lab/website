@@ -1,4 +1,13 @@
 <figure class="research-figure">
-  <img src="{{ `/images/researchers-computational-review.webp` | relURL }}" width="800" height="1000" alt="Two computational researchers reviewing source code, execution logs, and an experiment plot at a workstation" loading="eager" fetchpriority="high" decoding="sync">
+  <img
+    src="{{ `/images/researchers-computational-review.webp` | relURL }}"
+    srcset="{{ `/images/researchers-computational-review-480.webp` | relURL }} 480w, {{ `/images/researchers-computational-review-672.webp` | relURL }} 672w, {{ `/images/researchers-computational-review.webp` | relURL }} 800w"
+    sizes="(max-width: 680px) calc(100vw - 28px), (max-width: 900px) 620px, 350px"
+    width="800"
+    height="1000"
+    alt="Two computational researchers reviewing source code, execution logs, and an experiment plot at a workstation"
+    loading="eager"
+    fetchpriority="high"
+    decoding="sync">
   <figcaption><span>Illustrative image</span><strong>Reviewing code, execution logs, and experimental results</strong></figcaption>
 </figure>

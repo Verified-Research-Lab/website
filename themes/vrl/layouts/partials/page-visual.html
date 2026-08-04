@@ -2,8 +2,20 @@
 {{- $visual := $page.Params.visual -}}
 {{- with .visual }}{{ $visual = . }}{{ end -}}
 {{- with $visual -}}
+{{- $imageBase := strings.TrimSuffix ".webp" .src -}}
+{{- $image480 := printf "%s-480.webp" $imageBase -}}
+{{- $image672 := printf "%s-672.webp" $imageBase -}}
+{{- $image800 := printf "%s-800.webp" $imageBase -}}
 <figure class="page-visual {{ $.class }}">
-  <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="1200" height="800" loading="lazy" decoding="async">
+  <img
+    src="{{ .src | relURL }}"
+    srcset="{{ $image480 | relURL }} 480w, {{ $image672 | relURL }} 672w, {{ $image800 | relURL }} 800w, {{ .src | relURL }} 1200w"
+    sizes="(max-width: 680px) calc(100vw - 28px), (max-width: 1168px) calc(100vw - 48px), 1120px"
+    alt="{{ .alt }}"
+    width="1200"
+    height="800"
+    loading="lazy"
+    decoding="async">
   <figcaption>
     <span>{{ .label | default "Illustrative image" }}</span>
     <strong>{{ .caption }}</strong>
