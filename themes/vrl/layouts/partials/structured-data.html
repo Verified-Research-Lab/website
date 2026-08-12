@@ -1,8 +1,11 @@
 {{- $orgID := printf "%s#organization" site.BaseURL -}}
 {{- $websiteID := printf "%s#website" site.BaseURL -}}
+{{- $pageURL := .Permalink -}}
+{{- with .Params.redirectTarget }}{{ $pageURL = . | absURL }}{{ end -}}
+{{- $pageID := printf "%s#webpage" .Permalink -}}
 {{- $org := dict "@type" "Organization" "@id" $orgID "name" site.Title "url" site.BaseURL "logo" (site.Params.logo | absURL) "description" site.Params.description "email" site.Params.contactEmail -}}
 {{- $website := dict "@type" "WebSite" "@id" $websiteID "url" site.BaseURL "name" site.Title "description" site.Params.description "publisher" (dict "@id" $orgID) "inLanguage" "en-US" -}}
-{{- $page := dict "@type" "WebPage" "@id" (printf "%s#webpage" .Permalink) "url" .Permalink "name" (.Title | default site.Title) "description" (.Description | default site.Params.description) "isPartOf" (dict "@id" $websiteID) "about" (dict "@id" $orgID) "inLanguage" "en-US" -}}
+{{- $page := dict "@type" "WebPage" "@id" $pageID "url" $pageURL "name" (.Title | default site.Title) "description" (.Description | default site.Params.description) "isPartOf" (dict "@id" $websiteID) "about" (dict "@id" $orgID) "inLanguage" "en-US" -}}
 {{- $graph := slice $org $website $page -}}
 {{- if not .IsHome -}}
   {{- $items := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" site.BaseURL) -}}
@@ -14,7 +17,7 @@
   {{- end -}}
   {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $items) -}}
 {{- end -}}
-{{- if and .IsPage (eq .Section "services") -}}
+{{- if and .IsPage (eq .Section "services") (not .Params.redirectTarget) -}}
   {{- $service := dict "@type" "Service" "@id" (printf "%s#service" .Permalink) "name" .Title "description" .Description "url" .Permalink "provider" (dict "@id" $orgID) "audience" (dict "@type" "Audience" "audienceType" .Params.buyer) -}}
   {{- $graph = $graph | append $service -}}
 {{- end -}}

@@ -2,10 +2,12 @@
 {{ partial "page-intro.html" . }}
 <section class="shell page-body">
   {{ partial "page-visual.html" (dict "page" . "class" "governance-visual") }}
-  <div class="governance-list">
-    {{ range .Params.commitments }}
-    <article><h2>{{ .title }}</h2><p>{{ .text }}</p></article>
+  <p class="intro-statement governance-intro">Independence is enforced through the engagement terms, evidence record, review roles, and correction history.</p>
+  <div class="governance-accordions">
+    {{ range $index, $item := .Params.policies }}
+    <details class="plain-accordion policy-accordion"{{ if eq $index 0 }} open{{ end }}><summary><span><strong>{{ .title }}</strong><small>{{ .summary }}</small></span><span class="accordion-mark" aria-hidden="true"></span></summary><div class="policy-body"><div><p class="eyebrow">Policy</p><ul>{{ range .rules }}<li>{{ . }}</li>{{ end }}</ul></div><aside><p class="eyebrow">What this means for a client</p><p>{{ .client }}</p></aside></div></details>
     {{ end }}
   </div>
+  <div class="closing-cta"><div><p class="eyebrow">Before work begins</p><h2>Sponsorship, conflicts, factual review, and publication terms are written into the engagement.</h2></div><a class="button button-primary" href="{{ `/contact/` | relURL }}">Discuss an evaluation</a></div>
 </section>
 {{ end }}

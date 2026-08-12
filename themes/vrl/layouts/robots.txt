@@ -1,21 +1,29 @@
 User-agent: *
 Allow: /
 
-# AI search and answer engines
+# OpenAI search, user-directed retrieval, and training
 User-agent: OAI-SearchBot
-Allow: /
-
 User-agent: ChatGPT-User
+User-agent: GPTBot
 Allow: /
 
-User-agent: PerplexityBot
-Allow: /
-
+# Anthropic search, user-directed retrieval, and training
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: GPTBot
+# Perplexity search and user-directed retrieval
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# Google AI training and grounding control token
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: {{ `sitemap.xml` | absURL }}
 
+# AI-readable site guides:
+# {{ `llms.txt` | absURL }}
+# {{ `llms-full.txt` | absURL }}

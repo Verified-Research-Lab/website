@@ -2,12 +2,17 @@
 {{ partial "page-intro.html" . }}
 <section class="shell page-body">
   <p class="intro-statement registry-intro">{{ .Params.intro }}</p>
-  {{ if .Pages }}<div class="report-list">{{ range .Pages }}{{ partial "report-card.html" . }}{{ end }}</div>
-  {{ else }}
+  <section class="report-anatomy"><div class="section-heading-wide"><p class="eyebrow">Report anatomy</p><h2>Every conclusion stays connected to its evidence and limits.</h2></div><div class="four-grid">{{ range .Params.anatomy }}<article><h3>{{ .title }}</h3><p>{{ .text }}</p></article>{{ end }}</div></section>
+  <section class="sample-record" aria-labelledby="sample-heading">
+    <div class="sample-record-head"><div><p class="eyebrow">Illustrative excerpt</p><h2 id="sample-heading">How a bounded finding reads</h2></div><span>Example only</span></div>
+    <dl><div><dt>Specified claim</dt><dd>{{ .Params.sample.claim }}</dd></div><div><dt>Independent test</dt><dd>{{ .Params.sample.test }}</dd></div><div><dt>Finding</dt><dd>{{ .Params.sample.finding }}</dd></div><div class="sample-limit"><dt>Limit</dt><dd>{{ .Params.sample.limit }}</dd></div></dl>
+  </section>
+  <section class="registry-section"><div class="registry-heading"><div><p class="eyebrow">Public registry</p><h2>Published evaluations</h2></div><p>Reports remain versioned so responses, corrections, withdrawal, and revalidation status stay visible.</p></div>
+  {{ if .Pages }}<div class="report-list">{{ range .Pages }}{{ partial "report-card.html" . }}{{ end }}</div>{{ else }}<div class="empty-register"><div><span class="status-dot"></span><span>No evaluations published yet</span></div><p>The first completed public evaluation will appear here with its evidence labels and current status.</p></div>{{ end }}</section>
   <div class="record-fields">
-    <div><h2>What each report will show</h2></div>
+    <div><h2>What each registry entry shows</h2></div>
     <ul>{{ range .Params.recordFields }}<li>{{ . }}</li>{{ end }}</ul>
   </div>
-  {{ end }}
+  <div class="closing-cta"><div><p class="eyebrow">Commission a public record</p><h2>Set publication and review terms before testing begins.</h2></div><a class="button button-primary" href="{{ `/contact/?service=independent-verification-report` | relURL }}">Discuss an independent report</a></div>
 </section>
 {{ end }}

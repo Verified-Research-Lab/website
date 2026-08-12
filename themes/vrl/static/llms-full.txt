@@ -1,10 +1,17 @@
 # Verified Research Lab: expanded site guide
 
-> Verified Research Lab independently reproduces results, replicates claims, and reviews methods, artifacts, and benchmarks in computer systems and software research.
+> Independent testing for consequential research claims in computer systems and software.
 
 ## Purpose
 
 VRL examines published and pre-publication research in operating systems, distributed systems, databases, networking, software engineering, programming languages, compilers, systems security, and performance. Initial work focuses on papers and computational artifacts available for independent examination. Evaluations support post-publication review, publication preparation, follow-up research, technical adoption, funding, and due diligence.
+
+## Engagement process
+
+1. Fit check: VRL reviews the question, technical area, materials, access constraints, conflicts, and timing.
+2. Test plan: The claim, conditions, tolerances, exclusions, reporting format, confidentiality, and publication terms are agreed before work starts.
+3. Independent work: VRL reconstructs, reruns, varies, and records the work without sponsor control over the method or finding.
+4. Bounded conclusion: The deliverable states what was tested, what happened, where the conclusion stops, and what remains uncertain.
 
 ## Verification method
 
@@ -38,25 +45,41 @@ Labels describe the completed work and conclusions for the claims examined, whet
 
 Reruns reported results from supplied materials, or tests the same claim with an independent implementation, dataset, or experimental design.
 
+Canonical section: https://verifiedresearchlab.org/services/#reproduction-and-replication
+
 ### Claim and method review
 
 Assesses whether the research design, analysis, and evidence support the stated claim.
+
+Canonical section: https://verifiedresearchlab.org/services/#claim-and-method-review
 
 ### Artifact review
 
 Checks whether code, data, environments, and instructions can be retrieved and executed independently, then assesses versioning, preservation, and hosting readiness. Teams can request a separate advisory preparation pass.
 
+Canonical section: https://verifiedresearchlab.org/services/#artifact-review
+
 ### Benchmark audit
 
 For researchers preparing performance, cost, security, reliability, or correctness comparisons. Examines baselines, workloads, resource parity, measurement, statistics, and operating conditions.
+
+Canonical section: https://verifiedresearchlab.org/services/#benchmark-audit
 
 ### Independent verification report
 
 For researchers, laboratories, journals, conferences, and public-interest sponsors. Publishes a versioned record of the claims, evidence, methods, subject response, review, and correction status.
 
+Canonical section: https://verifiedresearchlab.org/services/#independent-verification-report
+
 ### Technical due diligence
 
 For investors, acquirers, R&D leaders, and funders. Examines research-derived technology before investment, acquisition, procurement, or adoption.
+
+Canonical page: https://verifiedresearchlab.org/services/technical-due-diligence/
+
+## Fit-check brief
+
+The contact form is a client-side email-draft helper. It validates the required name, email, and question fields, assembles the entries into a structured plain-text message, and opens the visitor's configured email application using a `mailto:` URL. The website does not receive, upload, or store the entries. The visitor must review and send the draft. If no email application is configured, the visitor can email contact@verifiedresearchlab.org directly.
 
 ## Governance commitments
 
@@ -78,4 +101,6 @@ VRL is preparing its method and first evaluations of existing research. The publ
 - Method: https://verifiedresearchlab.org/methods/
 - Reports: https://verifiedresearchlab.org/reports/
 - Governance: https://verifiedresearchlab.org/governance/
+- About: https://verifiedresearchlab.org/about/
 - Contact: https://verifiedresearchlab.org/contact/
+- Compact site guide: https://verifiedresearchlab.org/llms.txt

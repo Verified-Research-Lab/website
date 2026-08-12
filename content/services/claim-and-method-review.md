@@ -6,6 +6,8 @@ buyer: "Researchers, research teams, laboratories, journals, and conferences"
 decision: "Do the method, analysis, and evidence support the stated claim?"
 group: "core"
 cta: "Request a claim review"
+redirectTarget: "/services/#claim-and-method-review"
+anchor: "claim-and-method-review"
 order: 2
 weight: 20
 visual:
@@ -22,6 +24,15 @@ deliverables:
   - "Method review"
   - "Material evidence gaps"
   - "Recommended revisions"
+when:
+  - "A team wants an external review before submission or release."
+  - "A central claim depends on assumptions, analysis choices, or indirect evidence."
+  - "Reviewers need a traceable account of how the evidence supports the claim."
+materials:
+  - "Draft or published paper"
+  - "Analysis code, data, and supporting documentation"
+  - "The claims or reviewer concerns that need attention"
+scope: "This is an advisory review. If VRL later evaluates the same work independently, we disclose the earlier role and assign different reviewers."
 ---
 
 Teams can request this review before submission or release. If we later evaluate the same work independently, we disclose the advisory role and assign different reviewers.
