@@ -12,6 +12,7 @@
         } catch (_) {}
       })();
     </script>
+    {{ block "head" . }}{{ end }}
     {{- $description := .Description | default site.Params.description -}}
     {{- $pageName := .Params.seoTitle | default .Title -}}
     {{- $title := cond .IsHome site.Params.seoTitle (printf "%s | %s" $pageName site.Title) -}}
@@ -26,17 +27,20 @@
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $description }}">
     <meta name="author" content="{{ site.Title }}">
-    {{ if eq .Kind "404" }}<meta name="robots" content="noindex, nofollow">{{ else }}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">{{ end }}
-    <link rel="canonical" href="{{ .Permalink }}">
-    <link rel="alternate" hreflang="en" href="{{ .Permalink }}">
+    {{ if eq .Kind "404" }}<meta name="robots" content="noindex, nofollow">{{ else if .Params.redirectTarget }}<meta name="robots" content="noindex, follow">{{ else }}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">{{ end }}
+    {{- $canonical := .Permalink -}}
+    {{- with .Params.redirectTarget }}{{ $canonical = . | absURL }}{{ end -}}
+    <link rel="canonical" href="{{ $canonical }}">
+    <link rel="alternate" hreflang="en" href="{{ $canonical }}">
     <link rel="alternate" type="text/plain" href="{{ `llms.txt` | absURL }}" title="LLM site guide">
+    <link rel="alternate" type="text/plain" href="{{ `llms-full.txt` | absURL }}" title="Expanded LLM site guide">
     <link rel="sitemap" type="application/xml" href="{{ `sitemap.xml` | absURL }}">
     <meta property="og:site_name" content="{{ site.Title }}">
     <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="{{ if eq .Section `reports` }}article{{ else }}website{{ end }}">
+    <meta property="og:type" content="{{ if and .IsPage (eq .Section `reports`) }}article{{ else }}website{{ end }}">
     <meta property="og:title" content="{{ $title }}">
     <meta property="og:description" content="{{ $description }}">
-    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:url" content="{{ $canonical }}">
     <meta property="og:image" content="{{ $socialImage | absURL }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="{{ $socialImageHeight }}">

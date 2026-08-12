@@ -1,14 +1,22 @@
 {{ define "main" }}
   {{ partial "page-intro.html" . }}
-<section class="shell page-body contact-grid">
-  <div class="contact-primary">
-    <h2>Email</h2>
-    <a class="email-link" href="mailto:{{ .Params.email }}">{{ .Params.email }}</a>
-    <p>{{ .Params.response }}</p>
+<section class="shell page-body">
+  <div class="contact-layout">
+    <form class="fit-form" data-fit-form data-contact-email="{{ .Params.email }}">
+      <div class="form-head"><p class="eyebrow">Fit-check brief</p><h2>Tell us what needs to be tested.</h2><p>This form opens a pre-filled email in your mail app. Nothing is uploaded to the website.</p></div>
+      <div class="field-grid">
+        <label><span>Your name</span><input name="name" autocomplete="name" required></label>
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <label><span>What are you evaluating?</span><select name="service"><option value="Not sure yet">Not sure yet</option><option value="Research reproduction and replication">Research reproduction and replication</option><option value="Claim and method review">Claim and method review</option><option value="Artifact review">Artifact review</option><option value="Benchmark audit">Benchmark audit</option><option value="Independent verification report">Independent verification report</option><option value="Technical due diligence">Technical due diligence</option></select></label>
+      <label><span>Paper, artifact, repository, or claim link</span><input name="link" type="url" inputmode="url" placeholder="https://"></label>
+      <label><span>What result, publication, or decision depends on this?</span><textarea name="question" rows="5" required></textarea></label>
+      <div class="field-grid"><label><span>Desired timing</span><input name="timing" placeholder="For example: before 30 September"></label><label><span>Access or confidentiality constraints</span><input name="constraints" placeholder="Private repository, NDA, secure data…"></label></div>
+      <button class="button button-primary" type="submit">Prepare email</button><p class="form-status" data-form-status aria-live="polite"></p>
+      <noscript><p class="form-status">JavaScript is needed to prepare the draft. Email <a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a> directly instead.</p></noscript>
+    </form>
+    <aside class="contact-aside"><div><p class="eyebrow">Prefer email?</p><a class="email-link" href="mailto:{{ .Params.email }}">{{ .Params.email }}</a><p>{{ .Params.response }}</p></div><div><h2>What to include</h2><ul>{{ range .Params.items }}<li>{{ . }}</li>{{ end }}</ul></div></aside>
   </div>
-  <div class="contact-checklist">
-    <h2>What to include</h2>
-    <ul>{{ range .Params.items }}<li>{{ . }}</li>{{ end }}</ul>
-  </div>
+  <section class="contact-next"><div class="section-heading-wide"><p class="eyebrow">What happens next</p><h2>A fit check is not an evaluation commitment.</h2></div><div class="three-grid">{{ range .Params.nextSteps }}<article><h3>{{ .title }}</h3><p>{{ .text }}</p></article>{{ end }}</div></section>
 </section>
 {{ end }}

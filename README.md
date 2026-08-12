@@ -15,7 +15,9 @@ The site presents Verified Research Lab as an independent evidence practice. Its
 - responsive, accessible, dependency-free templates;
 - print styles for long-form methods and reports.
 
-The custom theme lives in `themes/vrl`. Every public section has a purpose-built layout, including the homepage, services, methods, reports, about, governance, contact, and the 404 page.
+The custom theme lives in `themes/vrl`. Every public section has a purpose-built layout, including the homepage, consolidated research services, technical due diligence, methods, reports, about, governance, contact, and the 404 page.
+
+The five research offerings live as accessible, deep-linkable accordions on `/services/`. Their former detail URLs are retained as `noindex` redirect stubs so existing links land on the corresponding open section. Technical due diligence remains a standalone page because its audience, confidentiality, and decision context differ.
 
 ## Search and machine discovery
 
@@ -47,12 +49,12 @@ For a local quality audit, serve the production build and run Lighthouse against
 
 Site content is stored under `content/`:
 
-- `services/` — reproduction, replication, claim, method, artifact, benchmark, report, and due-diligence services;
+- `services/` — accordion source content for research services plus the standalone technical due-diligence page;
 - `methods/` — the verification method and evidence labels;
 - `reports/` — the public report registry;
 - `about/` — institutional position and boundaries;
 - `governance/` — independence and accountability commitments;
-- `contact/` — engagement intake.
+- `contact/` — engagement intake. The fit-check form prepares a local `mailto:` draft and does not upload data to the site.
 
 Create a report draft with:
 

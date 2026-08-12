@@ -1,25 +1,34 @@
 # Verified Research Lab
 
-> Verified Research Lab independently reproduces results, replicates claims, and reviews methods, artifacts, and benchmarks in computer systems and software research.
+> Independent testing for consequential research claims in computer systems and software.
 
-The laboratory examines papers and artifacts, reconstructs computational environments, reruns experiments, audits comparisons, and records the limits of each conclusion.
+Verified Research Lab reproduces reported results, replicates claims independently, and reviews methods, artifacts, and benchmarks. Each conclusion is limited to the claim, evidence, and conditions examined.
+
+## Start here
+
+- [Research services](https://verifiedresearchlab.org/services/): Choose a question about a result, method, artifact, benchmark, or public verification record.
+- [Technical due diligence](https://verifiedresearchlab.org/services/technical-due-diligence/): Test a research-derived technical premise before investment, acquisition, procurement, funding, or adoption.
+- [Fit check](https://verifiedresearchlab.org/contact/): Share the work and explain which decision or publication depends on it.
 
 ## Core pages
 
-- [Services](https://verifiedresearchlab.org/services/): Research reproduction and replication, claim and method review, artifact review, benchmark audits, independent reports, and technical due diligence.
 - [Verification method](https://verifiedresearchlab.org/methods/): The six-stage claim-to-evidence process and evidence labels.
-- [Public report registry](https://verifiedresearchlab.org/reports/): Versioned reports, responses, corrections, and revalidation status.
+- [Reports and evidence](https://verifiedresearchlab.org/reports/): Report anatomy, an illustrative bounded finding, and the public registry.
 - [Governance](https://verifiedresearchlab.org/governance/): Sponsor separation, conflicts, factual review, evidence preservation, and correction policy.
 - [About](https://verifiedresearchlab.org/about/): Current focus, technical scope, and boundaries.
-- [Contact](https://verifiedresearchlab.org/contact/): How to discuss a paper, artifact, benchmark, or claim.
+- [Contact](https://verifiedresearchlab.org/contact/): A fit-check brief for a paper, artifact, benchmark, or claim.
+
+## Fit-check brief
+
+The contact form prepares a draft in the visitor's email application. It does not upload or store form data on the website. The visitor reviews and sends the email. Required fields are name, email, and the result, publication, or decision that needs examination.
 
 ## Services
 
-- [Research reproduction and replication](https://verifiedresearchlab.org/services/research-reproduction-and-replication/): Reruns reported results from supplied materials or tests the same claim through an independent replication.
-- [Claim and method review](https://verifiedresearchlab.org/services/claim-and-method-review/): Assesses whether the method, analysis, and evidence support the stated claim.
-- [Artifact review](https://verifiedresearchlab.org/services/artifact-readiness/): Checks whether code, data, environments, and instructions can be retrieved and executed independently, then assesses versioning, preservation, and hosting readiness.
-- [Benchmark audit](https://verifiedresearchlab.org/services/benchmark-audits/): Tests baselines, workloads, measurements, statistics, and claimed advantages.
-- [Independent verification report](https://verifiedresearchlab.org/services/independent-reports/): Publishes a versioned record of what reproduced, what replicated, what failed, and what remains uncertain.
+- [Research reproduction and replication](https://verifiedresearchlab.org/services/#reproduction-and-replication): Reruns reported results from supplied materials or tests the same claim through an independent replication.
+- [Claim and method review](https://verifiedresearchlab.org/services/#claim-and-method-review): Assesses whether the method, analysis, and evidence support the stated claim.
+- [Artifact review](https://verifiedresearchlab.org/services/#artifact-review): Checks whether code, data, environments, and instructions can be retrieved and executed independently, then assesses versioning, preservation, and hosting readiness.
+- [Benchmark audit](https://verifiedresearchlab.org/services/#benchmark-audit): Tests baselines, workloads, measurements, statistics, and claimed advantages.
+- [Independent verification report](https://verifiedresearchlab.org/services/#independent-verification-report): Publishes a versioned record of what reproduced, what replicated, what failed, and what remains uncertain.
 - [Technical due diligence](https://verifiedresearchlab.org/services/technical-due-diligence/): Tests research-derived technology before investment, acquisition, procurement, or adoption.
 
 ## Important qualifications

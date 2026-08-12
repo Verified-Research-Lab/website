@@ -1,20 +1,29 @@
+{{ define "head" }}{{ with .Params.redirectTarget }}<meta http-equiv="refresh" content="0; url={{ . | relURL }}">{{ end }}{{ end }}
 {{ define "main" }}
+{{ if .Params.redirectTarget }}
+<section class="shell redirect-page"><p class="eyebrow">Service moved</p><h1>{{ .Title }}</h1><p>This service now appears on the consolidated Services page.</p><a class="button button-primary" href="{{ .Params.redirectTarget | relURL }}">View {{ .Title | lower }}</a></section>
+<script>window.location.replace({{ .Params.redirectTarget | relURL | jsonify | safeJS }});</script>
+{{ else }}
 <article>
   <header class="service-hero shell">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ `/` | relURL }}">Home</a><span>/</span><a href="{{ `/services/` | relURL }}">Services</a></nav>
     <h1>{{ .Title }}</h1>
     <p class="page-deck">{{ .Description }}</p>
-    <p class="service-question"><span>Question</span>{{ .Params.decision }}</p>
+    <p class="service-question"><span>Decision question</span>{{ .Params.decision }}</p>
+    <div class="button-row"><a class="button button-primary" href="{{ `/contact/?service=technical-due-diligence` | relURL }}">Discuss a diligence question</a><a class="text-link" href="#examples">See what we can test</a></div>
   </header>
   {{ partial "page-visual.html" (dict "page" . "class" "service-visual shell") }}
-  <section class="shell service-detail-grid">
+  <section class="shell diligence-triggers" id="examples"><div class="section-heading-wide"><p class="eyebrow">When to involve VRL</p><h2>Scope follows the decision.</h2></div><div class="three-grid">{{ range .Params.triggers }}<article><h3>{{ .title }}</h3><p>{{ .text }}</p></article>{{ end }}</div></section>
+  <section class="surface-band"><div class="shell split-section"><div><p class="eyebrow">Technical premises we can test</p><h2>Turn the deal thesis into observable questions.</h2></div><ul class="editorial-list">{{ range .Params.assumptions }}<li>{{ . }}</li>{{ end }}</ul></div></section>
+  <section class="shell diligence-process"><div class="section-heading-wide"><p class="eyebrow">The diligence record</p><h2>Evidence tied to the decision, not a scorecard.</h2></div><ol class="numbered-grid three">{{ range $index, $item := .Params.process }}<li><span>{{ printf "%02d" (add $index 1) }}</span><h3>{{ .title }}</h3><p>{{ .text }}</p></li>{{ end }}</ol></section>
+  <section class="shell service-detail-grid diligence-deliverables">
     <div class="detail-column"><h2>What we examine</h2><ul class="check-list">{{ range .Params.examines }}<li>{{ . }}</li>{{ end }}</ul></div>
     <div class="detail-column"><h2>What you receive</h2><ul class="check-list">{{ range .Params.deliverables }}<li>{{ . }}</li>{{ end }}</ul></div>
   </section>
-  <footer class="shell service-footer">
-    <p><strong>For:</strong> {{ .Params.buyer }}</p>
-    {{ with .Content }}<div class="service-note">{{ . }}</div>{{ end }}
-    <a class="text-link" href="{{ `/contact/` | relURL }}">{{ .Params.cta | default "Request this evaluation" }}</a>
+  <footer class="shell diligence-footer">
+    <div><p class="eyebrow">Confidentiality and boundary</p><h2>A defined technical test, not a general company review.</h2></div>
+    <div><p>{{ .Params.confidentiality }}</p>{{ with .Content }}<div class="service-note">{{ . }}</div>{{ end }}<p><strong>For:</strong> {{ .Params.buyer }}</p><a class="button button-primary" href="{{ `/contact/?service=technical-due-diligence` | relURL }}">{{ .Params.cta }}</a></div>
   </footer>
 </article>
+{{ end }}
 {{ end }}

@@ -2,33 +2,40 @@
 {{ partial "page-intro.html" . }}
 <section class="shell page-body">
   <div class="service-group-heading">
-    <div><p class="eyebrow">For research</p><h2>Test results, claims, and artifacts</h2></div>
-    <p>Each engagement is scoped to a specific question and the available evidence.</p>
+    <div><p class="eyebrow">For research</p><h2>Start with the uncertainty, not a service label.</h2></div>
+    <p>Open the question closest to your situation. A fit check determines the final scope.</p>
   </div>
-  {{ partial "page-visual.html" (dict "page" . "class" "services-index-visual") }}
-  <div class="service-overview-list">
+  {{ partial "page-visual.html" (dict "page" . "class" "services-index-visual" "priority" true) }}
+  <div class="engagement-strip" aria-label="What happens in an engagement">
+    {{ range $index, $item := .Params.engagementSteps }}<article><span>{{ printf "%02d" (add $index 1) }}</span><h3>{{ .title }}</h3><p>{{ .text }}</p></article>{{ end }}
+  </div>
+  <div class="service-accordion-list">
     {{ range where .Pages.ByWeight "Params.group" "core" }}
-    <a class="service-overview" href="{{ .RelPermalink }}">
-      <div><h3>{{ .Title }}</h3><p>{{ .Description }}</p></div>
-      <span class="row-arrow" aria-hidden="true">↗</span>
-    </a>
+    <details class="service-accordion" id="{{ .Params.anchor }}"{{ if eq .Params.order 1 }} open{{ end }}>
+      <summary><span><strong>{{ .Title }}</strong><small>{{ .Description }}</small></span><span class="accordion-mark" aria-hidden="true"></span></summary>
+      <div class="accordion-body">
+        <div class="service-fit"><p class="eyebrow">Useful when</p><ul>{{ range .Params.when }}<li>{{ . }}</li>{{ end }}</ul></div>
+        <div class="service-columns">
+          <section><h3>The question</h3><p>{{ .Params.decision }}</p><h3>What we test</h3><ul>{{ range .Params.examines }}<li>{{ . }}</li>{{ end }}</ul></section>
+          <section><h3>What you receive</h3><ul>{{ range .Params.deliverables }}<li>{{ . }}</li>{{ end }} </ul><h3>What to send</h3><ul>{{ range .Params.materials }}<li>{{ . }}</li>{{ end }}</ul></section>
+        </div>
+        <div class="service-scope"><p>{{ .Params.scope }}</p><p><strong>For:</strong> {{ .Params.buyer }}</p><a class="button button-primary" href="{{ printf `/contact/?service=%s` .Params.anchor | relURL }}">{{ .Params.cta }}</a></div>
+      </div>
+    </details>
     {{ end }}
   </div>
   <div class="buyer-service-section">
     <div class="service-group-heading">
-      <div><p class="eyebrow">For decisions</p><h2>Evaluate research-derived technology</h2></div>
-      <p>For funding, investment, acquisition, procurement, or adoption.</p>
+      <div><p class="eyebrow">For decisions</p><h2>Test a technical premise before capital or adoption depends on it.</h2></div>
+      <p>For funding, investment, acquisition, procurement, and R&amp;D decisions.</p>
     </div>
     {{ partial "page-visual.html" (dict "page" . "visual" .Params.decisionVisual "class" "services-decision-visual") }}
-    <div class="service-overview-list">
+    <div class="decision-service-callout">
       {{ range where .Pages.ByWeight "Params.group" "applied" }}
-      <a class="service-overview" href="{{ .RelPermalink }}">
-        <div><h3>{{ .Title }}</h3><p>{{ .Description }}</p></div>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
+      <div><h3>{{ .Title }}</h3><p>{{ .Description }}</p></div><a class="button" href="{{ .RelPermalink }}">See technical due diligence</a>
       {{ end }}
     </div>
   </div>
-  <p class="page-contact">Unsure where to start? <a href="{{ `/contact/` | relURL }}">Send the paper or artifact.</a></p>
+  <p class="page-contact">The label can wait. <a href="{{ `/contact/` | relURL }}">Send the paper, artifact, or claim for a fit check.</a></p>
 </section>
 {{ end }}

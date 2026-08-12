@@ -34,11 +34,11 @@ menus:
 
 params:
   description: Independent reproduction, replication, and technical review for computer systems and software research.
-  tagline: Reproduction and replication for computer systems and software research.
+  tagline: Independent testing for consequential research claims.
   contactEmail: contact@verifiedresearchlab.org
   socialImage: /images/social-card.png
   logo: /favicon.svg
-  seoTitle: Research Reproduction and Replication | Verified Research Lab
+  seoTitle: Independent Research Verification | Verified Research Lab
 
 markup:
   goldmark:

@@ -6,10 +6,11 @@
     <aside><h2>Research areas</h2><ul>{{ range .Params.scope }}<li>{{ . }}</li>{{ end }}</ul></aside>
   </div>
   {{ partial "page-visual.html" (dict "page" . "class" "about-visual") }}
+  <section class="practice-section"><div class="section-heading-wide"><p class="eyebrow">The review practice</p><h2>Technical responsibility stays visible.</h2><p>{{ .Params.operatingPrinciple }}</p></div><div class="three-grid">{{ range .Params.practice }}<article><h3>{{ .title }}</h3><p>{{ .text }}</p></article>{{ end }}</div></section>
   <div class="boundary-section">
     <div><h2>{{ .Params.boundariesTitle }}</h2><p>{{ .Params.boundariesIntro }}</p></div>
     <ul>{{ range .Params.boundaries }}<li>{{ . }}</li>{{ end }}</ul>
   </div>
-  <p class="page-contact">See <a href="{{ `/governance/` | relURL }}">Governance</a> for sponsorship, review, and correction rules.</p>
+  <div class="closing-cta"><div><p class="eyebrow">Accountability</p><h2>Read the rules for sponsorship, review, evidence, and correction.</h2></div><a class="button" href="{{ `/governance/` | relURL }}">Read governance</a></div>
 </section>
 {{ end }}

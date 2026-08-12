@@ -6,6 +6,8 @@ buyer: "Researchers, laboratories, standards groups, technical buyers, and maint
 decision: "Does the claimed advantage survive fair baselines, representative workloads, and resource parity?"
 group: "core"
 cta: "Request a benchmark audit"
+redirectTarget: "/services/#benchmark-audit"
+anchor: "benchmark-audit"
 order: 4
 weight: 40
 visual:
@@ -22,6 +24,15 @@ deliverables:
   - "Raw measurements and analysis"
   - "Sensitivity results"
   - "Failure boundaries"
+when:
+  - "A performance claim depends on baseline choice or tuning."
+  - "Workloads, resource limits, or cost assumptions may change the comparison."
+  - "A benchmark result will influence publication, procurement, or adoption."
+materials:
+  - "Benchmark code, workloads, and reported results"
+  - "Baseline implementations and tuning instructions"
+  - "Hardware, cost, and operating assumptions"
+scope: "The audit focuses on the comparison behind the claim. We agree on baselines, workloads, parity conditions, and material sensitivity tests before execution."
 ---
 
 The audit tests the comparison itself and records where its conclusion stops holding.

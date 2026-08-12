@@ -14,8 +14,9 @@
     alt="{{ .alt }}"
     width="1200"
     height="800"
-    loading="lazy"
-    decoding="async">
+    loading="{{ if $.priority }}eager{{ else }}lazy{{ end }}"
+    decoding="{{ if $.priority }}sync{{ else }}async{{ end }}"
+    {{- if $.priority }} fetchpriority="high"{{ end }}>
   <figcaption>
     <strong>{{ .caption }}</strong>
   </figcaption>

@@ -7,14 +7,17 @@
   </div>
   {{ partial "page-visual.html" (dict "page" . "class" "method-visual") }}
   {{ partial "method-map.html" . }}
-  <ol class="stage-list">
-    {{ range .Params.stages }}
-    <li><h2>{{ .title }}</h2><p>{{ .text }}</p></li>
-    {{ end }}
-  </ol>
-  <div class="evidence-label-section">
-    <div class="section-heading"><h2>Evidence labels</h2><p>Labels record completed work at claim level. A paper-wide review may carry several labels.</p></div>
-    <div class="label-groups">{{ range .Params.labelGroups }}<article><h3>{{ .title }}</h3><p>{{ .text }}</p><ul>{{ range .labels }}<li>{{ . }}</li>{{ end }}</ul></article>{{ end }}</div>
+  <div class="method-client-grid">{{ range .Params.clientInputs }}<article><h2>{{ .title }}</h2><p>{{ .text }}</p></article>{{ end }}</div>
+  <div class="method-detail-section">
+    <div class="section-heading-wide"><p class="eyebrow">Evaluation stages</p><h2>Open a stage to see what it means for the client.</h2></div>
+    <div class="method-accordions">
+      {{ range $index, $item := .Params.stages }}<details class="plain-accordion"{{ if eq $index 0 }} open{{ end }}><summary><span class="step-number">{{ printf "%02d" (add $index 1) }}</span><span><strong>{{ .title }}</strong><small>{{ .text }}</small></span><span class="accordion-mark" aria-hidden="true"></span></summary><div><p>{{ .client }}</p></div></details>{{ end }}
+    </div>
   </div>
+  <div class="evidence-label-section">
+    <div class="section-heading"><h2>Evidence labels</h2><p>Labels describe completed work at claim level. They do not grade a whole paper or replace the report's stated limits.</p></div>
+    <div class="label-accordions">{{ range .Params.labelGroups }}<details class="plain-accordion"><summary><span><strong>{{ .title }}</strong><small>{{ .text }}</small></span><span class="accordion-mark" aria-hidden="true"></span></summary><div><ul>{{ range .labels }}<li>{{ . }}</li>{{ end }}</ul></div></details>{{ end }}</div>
+  </div>
+  <div class="closing-cta"><div><p class="eyebrow">Have a specific claim?</p><h2>Start with the paper and the decision it informs.</h2></div><a class="button button-primary" href="{{ `/contact/` | relURL }}">Start a fit check</a></div>
 </section>
 {{ end }}
